@@ -1,7 +1,7 @@
 // Import modules
 const app = require('./../app.js');
 const mysql = require('mysql');
-const filename = 'socket.js';
+const filename = 'chat.js';
 
 // Console Output
 console.log(("::: Initalized "+ filename).gray);
