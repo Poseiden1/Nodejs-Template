@@ -7,11 +7,26 @@ const filename = 'log.js';
 console.log(("::: Initalized "+ filename).gray);
 
 function ClientConnect(socketId) {
-    console.log('Client connected: '.brightGreen + socketId);
+    console.log(`${getCurrentTime()} ` + 'Client connected: '.brightGreen + `{ ${socketId} }`);
+    app.fs.appendFile('./log.txt', `${getCurrentTime()} Client connected { ${socketId} }\n`, function(err) {
+        if (err)
+            throw err;
+    });
 }
 
 function ClientDisconnect(socketId) {
-    console.log('Client disconnected: '.brightGreen + socketId);
+    console.log(`${getCurrentTime()} ` + 'Client disconnected: '.brightGreen + `{ ${socketId} }`);
+    app.fs.appendFile('./log.txt', `${getCurrentTime()} Client disconnected { ${socketId} }\n`, function(err) {
+        if (err)
+            throw err;
+    });
+}
+
+function getCurrentTime() {
+    let date = new Date();
+    let day = date.toISOString().slice(0,10);
+    let time = date.toISOString().slice(11,19)
+    return `[${day} ${time}]`;
 }
 
 // Export Modules

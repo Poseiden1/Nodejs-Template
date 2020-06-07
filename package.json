@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Poseiden1/Node.js-Template#readme",
   "devDependencies": {
     "colors": "^1.4.0",
+    "fs": "0.0.1-security",
     "nodemon": "^2.0.1"
   },
   "dependencies": {
