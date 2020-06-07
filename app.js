@@ -31,4 +31,5 @@ module.exports = {
 };
 
 // Require Modules
-require('./server/chat.js');
+require('./server/log.js');
+require('./server/connection.js');
