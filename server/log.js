@@ -7,7 +7,7 @@ const filename = 'log.js';
 console.log(("::: Initalized "+ filename).gray);
 
 function ClientConnect(socketId) {
-    console.log(`${getCurrentTime()} ` + 'Client connected: '.brightGreen + `{ ${socketId} }`);
+    console.log(`${getCurrentTime()} ` + 'Client connected '.brightGreen + `{ ${socketId} }`);
     app.fs.appendFile('./log.txt', `${getCurrentTime()} Client connected { ${socketId} }\n`, function(err) {
         if (err)
             throw err;
@@ -15,7 +15,7 @@ function ClientConnect(socketId) {
 }
 
 function ClientDisconnect(socketId) {
-    console.log(`${getCurrentTime()} ` + 'Client disconnected: '.brightGreen + `{ ${socketId} }`);
+    console.log(`${getCurrentTime()} ` + 'Client disconnected '.brightGreen + `{ ${socketId} }`);
     app.fs.appendFile('./log.txt', `${getCurrentTime()} Client disconnected { ${socketId} }\n`, function(err) {
         if (err)
             throw err;

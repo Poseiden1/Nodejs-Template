@@ -3,6 +3,7 @@ const app = require('./../app.js');
 const mysql = require('mysql');
 const log = require('./log.js');
 const filename = 'connection.js';
+var Player = require('./Player.js');
 
 
 // Console Output
@@ -15,5 +16,11 @@ app.io.on('connection', function(socket) {
     socket.on('disconnect', function() {
         // Client disconnected
         log.ClientDisconnect(socket.id);
-    })
+    });
+
+    socket.on('joinRoomUnity', function(data) {
+        console.log(data);
+    
+    });
+
 });

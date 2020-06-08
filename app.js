@@ -24,6 +24,7 @@ var db = mysql.createConnection({
 // Socket Setup
 var io = socket(server);
 
+
 // Export Modules
 module.exports = {
     db,
