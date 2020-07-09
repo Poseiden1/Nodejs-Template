@@ -4,6 +4,7 @@ const socket = require('socket.io');
 const mysql = require('mysql');
 const fs = require('fs');
 const colors = require('colors');
+const path = require('path');
 const port = 3000;
 
 // App Setup
@@ -20,18 +21,15 @@ var db = mysql.createConnection({
     database: "tanasia"
 })
 
-
 // Socket Setup
 var io = socket(server);
-
 
 // Export Modules
 module.exports = {
     db,
     io,
-    fs,
 };
 
 // Require Modules
-require('./server/log.js');
 require('./server/connection.js');
+require('./server/log.js');

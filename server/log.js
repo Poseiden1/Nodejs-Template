@@ -1,14 +1,18 @@
 // Import modules
-const app = require('./../app.js');
-const mysql = require('mysql');
-const filename = 'log.js';
+const {
+    db,
+    io,
+} = require('./../app.js');
+const path = require('path');
+const fs = require('fs');
 
 // Console Output
+const filename = path.basename(__filename);
 console.log(("::: Initalized "+ filename).gray);
 
 function ClientConnect(socketId) {
     console.log(`${getCurrentTime()} ` + 'Client connected '.brightGreen + `{ ${socketId} }`);
-    app.fs.appendFile('./log.txt', `${getCurrentTime()} Client connected { ${socketId} }\n`, function(err) {
+    fs.appendFile('./log.txt', `${getCurrentTime()} Client connected { ${socketId} }\n`, function(err) {
         if (err)
             throw err;
     });
@@ -16,7 +20,7 @@ function ClientConnect(socketId) {
 
 function ClientDisconnect(socketId) {
     console.log(`${getCurrentTime()} ` + 'Client disconnected '.brightGreen + `{ ${socketId} }`);
-    app.fs.appendFile('./log.txt', `${getCurrentTime()} Client disconnected { ${socketId} }\n`, function(err) {
+    fs.appendFile('./log.txt', `${getCurrentTime()} Client disconnected { ${socketId} }\n`, function(err) {
         if (err)
             throw err;
     });
